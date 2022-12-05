@@ -29,6 +29,12 @@ html {
   font-size: 62.5%;
 }
 
+@media only screen and (max-width: 90em) {
+  html {
+    font-size: 50%;
+  }
+}
+
 #root,
 body {
   height: 100vh;
