@@ -1,11 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap');
 
 :root {
   /* FONTS */
   --font-ubuntu: 'Ubuntu', sans-serif;
 
   /* COLORS */
-  --almost-black: #111827;
+  --almost-white: #f3f3f3;
+  --very-dark-blue: #020230;
+  --green: #6d9886;
+  --yellow: #fed049;
 }
 
 * {
@@ -34,7 +37,7 @@ body {
   font-family: var(--font-ubuntu);
   font-weight: 400;
   line-height: 1.6;
-  color: var(--almost-black);
+  color: var(--almost-white);
 }
 
 button {
