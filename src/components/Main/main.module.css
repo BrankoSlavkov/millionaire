@@ -35,7 +35,7 @@
 }
 
 .answers__container button:nth-child(even):hover {
-  background: linear-gradient(to right, var(--dark-blue), #000);
+  background: linear-gradient(to right, var(--dark-blue) 35%, #000);
 }
 
 .answers__container button:nth-child(odd) {
@@ -43,7 +43,7 @@
 }
 
 .answers__container button:nth-child(odd):hover {
-  background: linear-gradient(to right, #000, var(--dark-blue));
+  background: linear-gradient(to right, #000, var(--dark-blue) 75%);
 }
 
 .question {
