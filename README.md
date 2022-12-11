@@ -4,5 +4,4 @@
 
 - [styled-components](https://styled-components.com/)
 - [zustand](https://github.com/pmndrs/zustand)
-- [classnames](https://github.com/JedWatson/classnames)
 - [use-sound](https://github.com/joshwcomeau/use-sound#readme)
