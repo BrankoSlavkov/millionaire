@@ -1,4 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const activeStyles = css`
+  background-color: var(--green);
+`;
 
 export const AsideContainer = styled.aside`
   max-width: 25%;
@@ -37,7 +41,7 @@ export const ListItemStyled = styled.li<ListItemStyledProps>`
   border-radius: 10px;
   user-select: none;
 
-  ${({ isActive }) => isActive && `background-color: var(--green);`}
+  ${({ isActive }) => isActive && activeStyles}
 
   &:nth-child(5n) {
     color: var(--yellow);
