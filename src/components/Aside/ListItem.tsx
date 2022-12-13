@@ -1,3 +1,4 @@
+import { getCurrentQuestionIndex, useStore } from '../../store';
 import { ListItemStyled, Price } from './aside.styles';
 
 type ListItemProps = {
@@ -6,8 +7,9 @@ type ListItemProps = {
 };
 
 export const ListItem = ({ price, index }: ListItemProps) => {
+  const currentQuestionIndex = useStore(getCurrentQuestionIndex);
   return (
-    <ListItemStyled>
+    <ListItemStyled isActive={index === currentQuestionIndex}>
       <span>{index + 1}</span>
       <Price>$ {price.toLocaleString('de-DE')}</Price>
     </ListItemStyled>
