@@ -4,6 +4,7 @@ import {
   setStopTimer,
   getTimerIsRunning,
   useStore,
+  setStartGame,
 } from '../../store';
 import { Timer } from '../Timer/Timer';
 
@@ -19,6 +20,7 @@ export const Main = () => {
   const goToNextQuestion = useStore(setNextQuestion);
   const startTimer = useStore(setStartTimer);
   const stopTimer = useStore(setStopTimer);
+  const startGame = useStore(setStartGame);
   const timerIsRunning = useStore(getTimerIsRunning);
 
   return (
@@ -32,7 +34,7 @@ export const Main = () => {
           <Answer onClick={goToNextQuestion}>Tuning</Answer>
           <Answer onClick={startTimer}>Volume</Answer>
           <Answer onClick={stopTimer}>Bass</Answer>
-          <Answer>Treble</Answer>
+          <Answer onClick={startGame}>Treble</Answer>
         </AnswersContainer>
       </Questions>
     </MainContainer>

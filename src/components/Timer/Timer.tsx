@@ -5,7 +5,7 @@ import { useStore, setStopTimer } from '../../store';
 import { TimerContainer } from './timer.styles';
 
 export const Timer = () => {
-  const [timer, setTimer] = useState(5);
+  const [timer, setTimer] = useState(30);
   const stopTimer = useStore(setStopTimer);
 
   useEffect(() => {
