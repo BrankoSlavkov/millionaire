@@ -63,6 +63,8 @@ export const useStore = create<StateProps>((set) => ({
 
 export const getCurrentQuestionIndex = (state: Data) => state.currentQuestion;
 export const getTimerIsRunning = (state: Data) => state.timerIsRunning;
+export const getQuestionData = (state: Data) =>
+  state.questions[state.currentQuestion];
 
 export const setNextQuestion = (state: Action) => state.setQuestion;
 export const setStartTimer = (state: Action) => state.startTimer;
