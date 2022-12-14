@@ -1,17 +1,10 @@
 import create from 'zustand';
 
-import { games } from '../data.json';
 import { getRandomGame } from '../utils/randomGame';
 
-type Game = {
-  questions: Question[];
-};
+import { games } from '../data.json';
 
-type Question = {
-  question: string;
-  content: string[];
-  correct: number;
-};
+import { Game, Question } from '../types';
 
 type Data = {
   timerIsRunning: boolean;
