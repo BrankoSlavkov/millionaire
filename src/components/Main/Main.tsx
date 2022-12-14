@@ -1,41 +1,35 @@
+import { useEffect } from 'react';
+import shallow from 'zustand/shallow';
+
 import {
-  setNextQuestion,
-  setStartTimer,
-  setStopTimer,
   getTimerIsRunning,
   useStore,
+  getQuestionData,
   setStartGame,
 } from '../../store';
 import { Timer } from '../Timer/Timer';
+import { Answers } from './Answers';
 
-import {
-  Answer,
-  AnswersContainer,
-  MainContainer,
-  Question,
-  Questions,
-} from './main.styles';
+import { MainContainer, Question, Questions } from './main.styles';
 
 export const Main = () => {
-  const goToNextQuestion = useStore(setNextQuestion);
-  const startTimer = useStore(setStartTimer);
-  const stopTimer = useStore(setStopTimer);
-  const startGame = useStore(setStartGame);
   const timerIsRunning = useStore(getTimerIsRunning);
+  const questionData = useStore(getQuestionData, shallow);
+  const startGame = useStore(setStartGame);
+
+  useEffect(() => {
+    startGame();
+  }, []);
 
   return (
     <MainContainer>
       <Questions>
         {timerIsRunning && <Timer />}
-        <Question>
-          On a radio, stations are changed by using what control?
-        </Question>
-        <AnswersContainer>
-          <Answer onClick={goToNextQuestion}>Tuning</Answer>
-          <Answer onClick={startTimer}>Volume</Answer>
-          <Answer onClick={stopTimer}>Bass</Answer>
-          <Answer onClick={startGame}>Treble</Answer>
-        </AnswersContainer>
+        <Question>{questionData?.question}</Question>
+        <Answers
+          answers={questionData?.content}
+          correct={questionData?.correct}
+        />
       </Questions>
     </MainContainer>
   );

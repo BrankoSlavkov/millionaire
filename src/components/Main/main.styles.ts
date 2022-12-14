@@ -21,6 +21,9 @@ export const MainContainer = styled.main`
 MainContainer.displayName = 'MainContainer.styled';
 
 export const Questions = styled.div`
+  max-width: 124rem;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   row-gap: 6rem;
@@ -37,6 +40,7 @@ export const Question = styled.p`
   background: linear-gradient(to bottom, #000, var(--very-dark-blue));
   padding: 2.2rem 10rem;
   font-size: 2.7rem;
+  text-align: center;
 `;
 Question.displayName = 'Question.styled';
 
