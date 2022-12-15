@@ -11,13 +11,14 @@ type Data = {
   currentQuestion: number;
   questions: Question[];
   games: Game[];
+  player: string;
 };
 
 type Action = {
   startTimer: () => void;
   stopTimer: () => void;
   setQuestion: () => void;
-  setStartGame: () => void;
+  setPlayer: (name: string) => void;
 };
 
 type StateProps = Data & Action;
@@ -27,6 +28,7 @@ export const useStore = create<StateProps>((set) => ({
   currentQuestion: 0,
   games: games,
   questions: [],
+  player: '',
   startTimer: () => {
     set((state) => ({ ...state, timerIsRunning: true }));
   },
@@ -45,10 +47,14 @@ export const useStore = create<StateProps>((set) => ({
           ? currentQuestion + 1
           : currentQuestion;
 
-      return { ...state, currentQuestion: nextQuestionIndex };
+      return {
+        ...state,
+        currentQuestion: nextQuestionIndex,
+        timerIsRunning: false,
+      };
     });
   },
-  setStartGame: () => {
+  setPlayer: (name: string) => {
     set((state) => {
       const gameIndex = getRandomGame(0, games.length - 1);
 
@@ -56,6 +62,7 @@ export const useStore = create<StateProps>((set) => ({
         ...state,
         questions: games[gameIndex].questions,
         timerIsRunning: true,
+        player: name,
       };
     });
   },
@@ -65,8 +72,9 @@ export const getCurrentQuestionIndex = (state: Data) => state.currentQuestion;
 export const getTimerIsRunning = (state: Data) => state.timerIsRunning;
 export const getQuestionData = (state: Data) =>
   state.questions[state.currentQuestion];
+export const getPlayer = (state: Data) => state.player;
 
 export const setNextQuestion = (state: Action) => state.setQuestion;
 export const setStartTimer = (state: Action) => state.startTimer;
 export const setStopTimer = (state: Action) => state.stopTimer;
-export const setStartGame = (state: Action) => state.setStartGame;
+export const setPlayer = (state: Action) => state.setPlayer;
