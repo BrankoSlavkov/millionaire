@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { setPlayer, useStore } from '../../store';
+import { PLAY } from '../../Routes';
 
 import {
   FormContainer,
@@ -24,7 +25,7 @@ export const RegisterForm = () => {
     }
 
     setPlayerHandler(name);
-    navigate('/play');
+    navigate(PLAY);
   };
 
   return (

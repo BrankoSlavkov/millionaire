@@ -6,6 +6,8 @@ import { getPlayer, useStore } from '../store';
 import { Aside } from '../components/Aside/Aside';
 import { Main } from '../components/Main/Main';
 
+import { REGISTER } from '../Routes';
+
 import { ScreenContainer } from '../Styles';
 
 export const Play = () => {
@@ -13,7 +15,7 @@ export const Play = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (!player.length) navigate('/');
+    if (!player.length) navigate(REGISTER);
   }, []);
 
   return (

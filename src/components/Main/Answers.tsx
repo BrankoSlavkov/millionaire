@@ -1,4 +1,7 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { GAME_OVER } from '../../Routes';
 import {
   getCurrentQuestionIndex,
   setNextQuestion,
@@ -6,6 +9,7 @@ import {
   useStore,
 } from '../../store';
 import { Question } from '../../types';
+
 import { Answer, AnswersContainer } from './main.styles';
 
 type AnswersProps = {
@@ -14,6 +18,7 @@ type AnswersProps = {
 };
 
 export const Answers = ({ answers, correct }: AnswersProps) => {
+  const navigate = useNavigate();
   const goToNext = useStore(setNextQuestion);
   const questionId = useStore(getCurrentQuestionIndex);
   const startTimer = useStore(setStartTimer);
@@ -26,6 +31,9 @@ export const Answers = ({ answers, correct }: AnswersProps) => {
       setTimeout(goToNext, 3000);
       return;
     }
+
+    navigate(GAME_OVER);
+
     // TODO - Handle wrong answer
   };
 
