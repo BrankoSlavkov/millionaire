@@ -1,10 +1,44 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 const questionAnswerCommon = css`
   border: 3px solid var(--blue);
   border-radius: 20px;
   user-select: none;
   letter-spacing: 0.7px;
+`;
+
+const correctAnswer = keyframes`
+  0%,
+  22%,
+  42% {
+    background: mediumblue;
+  }
+  20%,
+  40%,
+  60% {
+    background: linear-gradient(var(--very-dark-blue), var(--purple));
+  }
+  62%,
+  100% {
+    background: green;
+  }
+`;
+
+const wrongAnswer = keyframes`
+  0%,
+  22%,
+  42% {
+    background: mediumblue;
+  }
+  20%,
+  40%,
+  60% {
+    background: linear-gradient(var(--very-dark-blue), var(--purple));
+  }
+  62%,
+  100% {
+    background: crimson;
+  }
 `;
 
 export const MainContainer = styled.main`
@@ -52,13 +86,26 @@ export const AnswersContainer = styled.div`
 `;
 AnswersContainer.displayName = 'AnswersContainer.styled';
 
-export const Answer = styled.button`
+type AnswerProps = {
+  isCorrect: boolean;
+  isAnswering: boolean;
+};
+
+export const Answer = styled.button<AnswerProps>`
   ${questionAnswerCommon}
   width: 100%;
   padding: 1.5rem 5rem;
   text-align: center;
   font-size: 2.3rem;
   color: inherit;
+  ${({ isAnswering, isCorrect }) => {
+    if (!isAnswering) return;
+
+    return css`
+      animation: ${isCorrect ? correctAnswer : wrongAnswer} 3s ease forwards;
+    `;
+  }}
+
   &:nth-child(even) {
     background: linear-gradient(to right, var(--very-dark-blue), #000);
     &:hover {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { setPlayer, useStore } from '../../store';
@@ -11,7 +11,7 @@ import {
 } from './registerForm.styles';
 
 export const RegisterForm = () => {
-  const [name, setName] = useState('');
+  const [name, setName] = React.useState('');
   const setPlayerHandler = useStore(setPlayer);
   const navigate = useNavigate();
 

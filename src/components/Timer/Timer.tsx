@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
 
 import { useStore, setStopTimer } from '../../store';
 
 import { TimerContainer } from './timer.styles';
 
 export const Timer = () => {
-  const [timer, setTimer] = useState(30);
+  const [timer, setTimer] = React.useState(30);
   const stopTimer = useStore(setStopTimer);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const intervalId = setInterval(() => {
       setTimer((prevState) => prevState - 1);
     }, 1000);
@@ -16,7 +16,7 @@ export const Timer = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (timer === 0) {
       stopTimer();
       //TODO - set lose game

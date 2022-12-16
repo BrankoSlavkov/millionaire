@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React from 'react';
 import {
   getCurrentQuestionIndex,
   setNextQuestion,
@@ -17,21 +17,34 @@ export const Answers = ({ answers, correct }: AnswersProps) => {
   const goToNext = useStore(setNextQuestion);
   const questionId = useStore(getCurrentQuestionIndex);
   const startTimer = useStore(setStartTimer);
+  const [isAnswering, setIsAnswering] = React.useState<number | null>(null);
 
   const answerClickHandler = (index: number) => {
+    setIsAnswering(index);
+
     if (index === correct) {
-      goToNext();
+      setTimeout(goToNext, 3000);
+      return;
     }
+    // TODO - Handle wrong answer
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     startTimer();
+    setIsAnswering(null);
   }, [questionId]);
 
   return (
     <AnswersContainer>
       {answers?.map((answer, index) => (
-        <Answer key={answer} onClick={() => answerClickHandler(index)}>
+        <Answer
+          key={answer}
+          onClick={() => answerClickHandler(index)}
+          isCorrect={index === correct}
+          isAnswering={
+            !Number.isNaN(isAnswering) ? isAnswering === index : !!isAnswering
+          }
+        >
           {answer}
         </Answer>
       ))}
