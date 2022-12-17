@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useSound from 'use-sound';
 
-import { GAME_OVER } from '../../routes';
+import { GAME_OVER } from '../../rroutes';
 import {
   getCurrentQuestionIndex,
   getIsAnswering,

@@ -2,14 +2,14 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { setPlayer, useStore } from '../../store';
-import { PLAY } from '../../routes';
+import { PLAY } from '../../rroutes';
 
 import {
   PlayButton,
   RegisterFormElement,
   RegisterInput,
 } from './registerForm.styles';
-import { ScreenBackground } from '../../styles';
+import { ScreenBackground } from '../../sstyles';
 
 export const RegisterForm = () => {
   const [name, setName] = React.useState('');

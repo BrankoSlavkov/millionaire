@@ -1,6 +1,6 @@
 import { GameOver } from '../components/GameOver/GameOver';
 
-import { ScreenContainer } from '../styles';
+import { ScreenContainer } from '../sstyles';
 
 export const GameOverPage = () => {
   return (

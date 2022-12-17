@@ -1,4 +1,4 @@
-import { ScreenBackground } from '../../styles';
+import { ScreenBackground } from '../../sstyles';
 import { CenterContainer } from './gameOver.styles';
 
 export const GameOver = () => {
