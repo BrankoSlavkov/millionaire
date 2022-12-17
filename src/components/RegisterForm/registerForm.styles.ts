@@ -27,7 +27,8 @@ RegisterInput.displayName = 'RegisterInput.styled';
 
 export const PlayButton = styled.button`
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 2rem;
+  letter-spacing: 2px;
   font-family: var(--font-ubuntu);
   color: #fff;
   border: none;
