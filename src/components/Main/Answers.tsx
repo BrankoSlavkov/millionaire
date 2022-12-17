@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import useSound from 'use-sound';
 
 import { GAME_OVER } from '../../Routes';
 import {
@@ -11,6 +12,9 @@ import {
   useStore,
 } from '../../store';
 import { Question } from '../../types';
+
+import correctAnswer from '../../assets/sounds/correct.mp3';
+import wrongAnswer from '../../assets/sounds/wrong.mp3';
 
 import { Answer, AnswersContainer } from './main.styles';
 
@@ -26,20 +30,33 @@ export const Answers = ({ answers, correct }: AnswersProps) => {
   const startTimer = useStore(setStartTimer);
   const isAnswering = useStore(getIsAnswering);
   const isAnsweringHandler = useStore(setIsAnswering);
+  const [playCorrect] = useSound(correctAnswer, {
+    interrupt: true,
+  });
+  const [playWrong] = useSound(wrongAnswer, {
+    interrupt: true,
+  });
 
   const answerClickHandler = (index: number) => {
     isAnsweringHandler(index);
 
     if (index === correct) {
-      setTimeout(goToNext, 3000);
+      setTimeout(() => {
+        playCorrect();
+        setTimeout(goToNext, 2_000);
+      }, 1_500);
+
       return;
     }
 
     setTimeout(() => {
-      navigate(GAME_OVER, {
-        replace: true,
-      });
-    }, 3000);
+      playWrong();
+      setTimeout(() => {
+        navigate(GAME_OVER, {
+          replace: true,
+        });
+      }, 2_000);
+    }, 1_500);
   };
 
   React.useEffect(() => {
