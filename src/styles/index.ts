@@ -9,7 +9,7 @@ ScreenContainer.displayName = 'ScreenContainer.styled';
 
 export const ScreenBackground = styled.div`
   background: linear-gradient(to bottom, #0000, var(--very-dark-blue)),
-    url('/src/assets/img/bg.jpg') center;
+    url('/assets/img/bg.jpg') center;
   background-size: cover;
   width: 100%;
 `;

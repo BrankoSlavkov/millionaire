@@ -13,8 +13,8 @@ import {
 } from '../../store';
 import { Question } from '../../types';
 
-import correctAnswer from '../../assets/sounds/correct.mp3';
-import wrongAnswer from '../../assets/sounds/wrong.mp3';
+import correctAnswer from '/assets/sounds/correct.mp3';
+import wrongAnswer from '/assets/sounds/wrong.mp3';
 
 import { Answer, AnswersContainer } from './main.styles';
 

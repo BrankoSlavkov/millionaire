@@ -45,7 +45,7 @@ export const MainContainer = styled.main`
   max-width: 75%;
   flex: 1;
   background: linear-gradient(to bottom, #0000, var(--very-dark-blue)),
-    url('/src/assets/img/bg.jpg') center;
+    url('/assets/img/bg.jpg') center;
   background-size: cover;
   display: flex;
   flex-direction: column;
