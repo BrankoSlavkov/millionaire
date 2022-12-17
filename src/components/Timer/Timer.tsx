@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { GAME_OVER } from '../../Routes';
 
 import { useStore, setStopTimer } from '../../store';
 
@@ -7,6 +9,7 @@ import { TimerContainer } from './timer.styles';
 export const Timer = () => {
   const [timer, setTimer] = React.useState(30);
   const stopTimer = useStore(setStopTimer);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     const intervalId = setInterval(() => {
@@ -19,7 +22,9 @@ export const Timer = () => {
   React.useEffect(() => {
     if (timer === 0) {
       stopTimer();
-      //TODO - set lose game
+      navigate(GAME_OVER, {
+        replace: true,
+      });
     }
   }, [timer]);
 
