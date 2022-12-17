@@ -1,6 +1,6 @@
 import { RegisterForm } from '../components/RegisterForm/RegisterForm';
 
-import { ScreenContainer } from '../Styles';
+import { ScreenContainer } from '../styles';
 
 export const RegisterPage = () => {
   return (
