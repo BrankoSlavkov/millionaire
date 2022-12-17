@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { GameOver } from '../pages/GameOver';
+import { GameOverPage } from '../pages/GameOver';
 
-import { Play } from '../pages/Play';
-import { Register } from '../pages/Register';
+import { PlayPage } from '../pages/Play';
+import { RegisterPage } from '../pages/Register';
 
 export const REGISTER = '/register';
 export const PLAY = '/play';
@@ -11,18 +11,18 @@ export const GAME_OVER = '/game-over';
 export const router = createBrowserRouter([
   {
     path: REGISTER,
-    element: <Register />,
+    element: <RegisterPage />,
   },
   {
     path: PLAY,
-    element: <Play />,
+    element: <PlayPage />,
   },
   {
     path: GAME_OVER,
-    element: <GameOver />,
+    element: <GameOverPage />,
   },
   {
     path: '*',
-    element: <Register />,
+    element: <RegisterPage />,
   },
 ]);

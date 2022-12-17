@@ -1,5 +1,11 @@
-import React from 'react';
+import { GameOver } from '../components/GameOver/GameOver';
 
-export const GameOver = () => {
-  return <div>GameOver</div>;
+import { ScreenContainer } from '../Styles';
+
+export const GameOverPage = () => {
+  return (
+    <ScreenContainer>
+      <GameOver />
+    </ScreenContainer>
+  );
 };

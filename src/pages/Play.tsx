@@ -10,7 +10,7 @@ import { REGISTER } from '../Routes';
 
 import { ScreenContainer } from '../Styles';
 
-export const Play = () => {
+export const PlayPage = () => {
   const player = useStore(getPlayer);
   const navigate = useNavigate();
 
