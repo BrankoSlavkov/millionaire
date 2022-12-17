@@ -25,16 +25,21 @@ type AnswersProps = {
 
 export const Answers = ({ answers, correct }: AnswersProps) => {
   const navigate = useNavigate();
+
   const goToNext = useStore(setNextQuestion);
   const questionId = useStore(getCurrentQuestionIndex);
   const startTimer = useStore(setStartTimer);
   const isAnswering = useStore(getIsAnswering);
   const isAnsweringHandler = useStore(setIsAnswering);
+
   const [playCorrect] = useSound(correctAnswer, {
     interrupt: true,
+    volume: 0.5,
   });
+
   const [playWrong] = useSound(wrongAnswer, {
     interrupt: true,
+    volume: 0.5,
   });
 
   const answerClickHandler = (index: number) => {

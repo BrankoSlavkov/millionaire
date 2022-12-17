@@ -13,7 +13,9 @@ import { ScreenBackground } from '../../styles';
 
 export const RegisterForm = () => {
   const [name, setName] = React.useState('');
+
   const setPlayerHandler = useStore(setPlayer);
+
   const navigate = useNavigate();
 
   const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
