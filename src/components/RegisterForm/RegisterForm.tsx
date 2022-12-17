@@ -5,11 +5,11 @@ import { setPlayer, useStore } from '../../store';
 import { PLAY } from '../../Routes';
 
 import {
-  FormContainer,
   PlayButton,
   RegisterFormElement,
   RegisterInput,
 } from './registerForm.styles';
+import { ScreenBackground } from '../../Styles';
 
 export const RegisterForm = () => {
   const [name, setName] = React.useState('');
@@ -29,7 +29,7 @@ export const RegisterForm = () => {
   };
 
   return (
-    <FormContainer>
+    <ScreenBackground>
       <RegisterFormElement onSubmit={formHandler}>
         <RegisterInput
           type="text"
@@ -38,6 +38,6 @@ export const RegisterForm = () => {
         />
         <PlayButton type="submit">Play</PlayButton>
       </RegisterFormElement>
-    </FormContainer>
+    </ScreenBackground>
   );
 };

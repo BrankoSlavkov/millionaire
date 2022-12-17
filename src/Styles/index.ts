@@ -6,3 +6,11 @@ export const ScreenContainer = styled.div`
   display: flex;
 `;
 ScreenContainer.displayName = 'ScreenContainer.styled';
+
+export const ScreenBackground = styled.div`
+  background: linear-gradient(to bottom, #0000, var(--very-dark-blue)),
+    url('/src/assets/img/bg.jpg') center;
+  background-size: cover;
+  width: 100%;
+`;
+ScreenBackground.displayName = 'ScreenBackground.styled';

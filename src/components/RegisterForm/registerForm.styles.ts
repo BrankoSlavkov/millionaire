@@ -1,13 +1,5 @@
 import styled from 'styled-components';
 
-export const FormContainer = styled.div`
-  background: linear-gradient(to bottom, #0000, var(--very-dark-blue)),
-    url('/src/assets/img/bg.jpg') center;
-  background-size: cover;
-  width: 100%;
-`;
-FormContainer.displayName = 'FormContainer.styled';
-
 export const RegisterFormElement = styled.form`
   max-width: 28rem;
   margin: 0 auto;

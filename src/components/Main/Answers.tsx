@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { GAME_OVER } from '../../Routes';
 import {
   getCurrentQuestionIndex,
+  getIsAnswering,
+  setIsAnswering,
   setNextQuestion,
   setStartTimer,
   useStore,
@@ -22,30 +24,34 @@ export const Answers = ({ answers, correct }: AnswersProps) => {
   const goToNext = useStore(setNextQuestion);
   const questionId = useStore(getCurrentQuestionIndex);
   const startTimer = useStore(setStartTimer);
-  const [isAnswering, setIsAnswering] = React.useState<number | null>(null);
+  const isAnswering = useStore(getIsAnswering);
+  const isAnsweringHandler = useStore(setIsAnswering);
 
   const answerClickHandler = (index: number) => {
-    setIsAnswering(index);
+    isAnsweringHandler(index);
 
     if (index === correct) {
       setTimeout(goToNext, 3000);
       return;
     }
 
-    navigate(GAME_OVER);
-
-    // TODO - Handle wrong answer
+    setTimeout(() => {
+      navigate(GAME_OVER, {
+        replace: true,
+      });
+    }, 3000);
   };
 
   React.useEffect(() => {
     startTimer();
-    setIsAnswering(null);
+    isAnsweringHandler(null);
   }, [questionId]);
 
   return (
     <AnswersContainer>
       {answers?.map((answer, index) => (
         <Answer
+          disabled={!!isAnswering}
           key={answer}
           onClick={() => answerClickHandler(index)}
           isCorrect={index === correct}
