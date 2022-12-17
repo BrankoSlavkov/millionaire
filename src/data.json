@@ -167,14 +167,14 @@
           "question": "What was the first university in the United States"
         },
         {
-          "correct": 0,
+          "question": "In aviation, what does UFO stand for?",
           "content": [
-            "The amount of energy it takes to move an electron through a potential difference of 1 volt",
-            "The number of volts it takes to move an electon a meter",
-            "The number of electrons it takes to kill a human being",
-            "The flux of current through a surface parallel to a capacitor"
+            "Unified Flying Object",
+            "Unitary Flinging Obsession",
+            "United Flag Opposition",
+            "Unidentified Flying Object"
           ],
-          "question": "An electron volt is"
+          "correct": 3
         },
         {
           "correct": 0,
@@ -385,15 +385,16 @@
           "correct": 3
         },
         {
-          "question": "In aviation, what does UFO stand for?",
+          "correct": 1,
           "content": [
-            "Unified Flying Object",
-            "Unitary Flinging Obsession",
-            "United Flag Opposition",
-            "Unidentified Flying Object"
+            "The number of volts it takes to move an electon a meter",
+            "The amount of energy it takes to move an electron through a potential difference of 1 volt",
+            "The number of electrons it takes to kill a human being",
+            "The flux of current through a surface parallel to a capacitor"
           ],
-          "correct": 3
+          "question": "An electron volt is"
         },
+
         {
           "correct": 0,
           "content": [
@@ -430,10 +431,10 @@
           "question": "Heavy Water Project (Talcher) and Fertilizer plant (Paradeep) are famous industries of"
         },
         {
-          "correct": 0,
+          "correct": 1,
           "content": [
-            "the amount of moisture it can hold decreases",
             "its absolute humidity decreases",
+            "the amount of moisture it can hold decreases",
             "its relative humidity remains constant",
             "its absolute humidity increases"
           ],
@@ -445,11 +446,11 @@
           "question": "When did France became Republic?"
         },
         {
-          "correct": 2,
+          "correct": 1,
           "content": [
             "Group A only",
-            "Group B only",
             "Group A and O",
+            "Group B only",
             "Group AB only"
           ],
           "question": "Of the blood groups A, B, AB and O, which one is transfused into a person whose blood group is A?"
@@ -470,10 +471,10 @@
           "question": "Karl Marx's ideology advocated"
         },
         {
-          "correct": 0,
+          "correct": 1,
           "content": [
-            "Maharashtra",
             "Rajasthan",
+            "Maharashtra",
             "Madhya Pradesh",
             "Himachal Pradesh"
           ],
