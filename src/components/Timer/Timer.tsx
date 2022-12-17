@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GAME_OVER } from '../../rroutes';
+import { GAME_OVER } from '../../routes';
 
 import { useStore, setStopTimer } from '../../store';
 

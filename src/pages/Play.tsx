@@ -6,9 +6,9 @@ import { getPlayer, useStore } from '../store';
 import { Aside } from '../components/Aside/Aside';
 import { Main } from '../components/Main/Main';
 
-import { REGISTER } from '../ ';
+import { REGISTER } from '../routes';
 
-import { ScreenContainer } from '../sstyles';
+import { ScreenContainer } from '../styles';
 
 export const PlayPage = () => {
   const player = useStore(getPlayer);
