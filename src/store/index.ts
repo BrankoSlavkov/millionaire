@@ -66,6 +66,7 @@ export const useStore = create<StateProps>((set) => ({
         questions: games[gameIndex].questions,
         timerIsRunning: true,
         player: name,
+        currentQuestion: 0,
       };
     });
   },

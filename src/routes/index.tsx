@@ -8,7 +8,7 @@ import { WinnerPage } from '../pages/Winner';
 export const REGISTER = '/register';
 export const PLAY = '/play';
 export const GAME_OVER = '/game-over';
-export const WINNER = 'winner';
+export const WINNER = '/winner';
 
 export const router = createBrowserRouter([
   {

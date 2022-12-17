@@ -14,10 +14,16 @@ export const WinnersContainer = styled.div`
     margin-top: -2rem;
   }
 
+  & p,
   & span {
     font-size: 4rem;
     letter-spacing: 3px;
     font-weight: 300;
+  }
+
+  & span {
+    font-weight: 700;
+    color: var(--yellow);
   }
 
   ${NewGameButton} {

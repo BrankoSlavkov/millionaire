@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useSound from 'use-sound';
 
-import { GAME_OVER } from '../../routes';
+import { GAME_OVER, WINNER } from '../../routes';
 import {
   getCurrentQuestionIndex,
   getIsAnswering,
@@ -23,11 +23,13 @@ type AnswersProps = {
   correct?: Question['correct'];
 };
 
+const LAST_QUESTION_INDEX = 14;
+
 export const Answers = ({ answers, correct }: AnswersProps) => {
   const navigate = useNavigate();
 
   const goToNext = useStore(setNextQuestion);
-  const questionId = useStore(getCurrentQuestionIndex);
+  const questionIndex = useStore(getCurrentQuestionIndex);
   const startTimer = useStore(setStartTimer);
   const isAnswering = useStore(getIsAnswering);
   const isAnsweringHandler = useStore(setIsAnswering);
@@ -48,7 +50,13 @@ export const Answers = ({ answers, correct }: AnswersProps) => {
     if (index === correct) {
       setTimeout(() => {
         playCorrect();
-        setTimeout(goToNext, 2_000);
+        setTimeout(() => {
+          if (questionIndex === LAST_QUESTION_INDEX) {
+            navigate(WINNER);
+          }
+
+          goToNext();
+        }, 2_000);
       }, 1_500);
 
       return;
@@ -67,7 +75,7 @@ export const Answers = ({ answers, correct }: AnswersProps) => {
   React.useEffect(() => {
     startTimer();
     isAnsweringHandler(null);
-  }, [questionId]);
+  }, [questionIndex]);
 
   return (
     <AnswersContainer>
